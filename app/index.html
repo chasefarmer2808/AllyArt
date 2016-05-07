@@ -14,6 +14,7 @@
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/navbar.css">
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
     <!-- endbuild -->
   </head>
   <body ng-app="allyArtApp">
@@ -45,6 +46,14 @@
               <li ng-class="{active: isActive('/commisions')}"><a ng-href="#/commisions">Commisions</a></li>
               <li ng-class="{active: isActive('/bio')}"><a ng-href = "#/bio">Bio</a></li>
               <li ng-class="{active: isActive('/contact')}"><a ng-href="#/contact">Contact</a></li>
+            </ul>
+            <ul class="nav navbar-right">
+              <li>
+                <span>
+                  <a target="_tab" href="https://www.facebook.com/alexandra.franzese1?fref=ts" class="fa fa-facebook-official fa-2x"  id="socialMedia"></a>
+                  <a target="_tab" href="https://www.pinterest.com/alligator5/" class="fa fa-pinterest-square fa-2x"></a>
+                </span>
+              </li>
             </ul>
           </div>
         </div>

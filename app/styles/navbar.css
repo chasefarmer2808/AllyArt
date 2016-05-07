@@ -6,3 +6,18 @@
 #navButtons {
   font-size: 150%;
 }
+
+.fa {
+  color:grey;
+  padding: 5px;
+  padding-top:12px;
+}
+.fa-facebook-official:hover, .fa-facebook-official:focus{
+    color: #3b5998;
+    text-decoration: none;
+}
+
+.fa-pinterest-square:hover, .fa-pinterest-square:focus {
+    color: #c92228;
+    text-decoration: none;
+}
