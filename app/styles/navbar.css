@@ -1,10 +1,31 @@
+.navbar-nav>.active>a {
+  color: #000;
+  background-color: grey;
+}
+
 .navbar {
   background-color: #373a3c;
   margin-bottom: 0px;
 }
 
 #navButtons {
-  font-size: 150%;
+  font-size: 170%;
+}
+
+#link {
+  color: #ff99ff;
+}
+
+#link:focus {
+  background-color: grey;
+}
+
+#link:hover {
+  background-color: grey;
+}
+
+.navbar-brand {
+  font-size: 170%;
 }
 
 .fa {
