@@ -45,6 +45,8 @@ body {
 .jumbotron {
   text-align: center;
   border-bottom: 1px solid #e5e5e5;
+  background-image: url('../images/edge.png');
+  width: 100%;
 }
 .jumbotron .btn {
   font-size: 21px;
@@ -62,7 +64,7 @@ body {
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .container {
-    max-width: 730px;
+    min-width: 730px;
   }
 
   /* Remove the padding we set earlier */
