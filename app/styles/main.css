@@ -47,6 +47,7 @@ body {
   border-bottom: 1px solid #e5e5e5;
   background-image: url('../images/edge.png');
   width: 100%;
+  margin-bottom: 0;
 }
 .jumbotron .btn {
   font-size: 21px;
@@ -61,10 +62,20 @@ body {
   margin-top: 28px;
 }
 
+.carousel-inner > .item > a > img {
+    margin: 0 auto;
+}
+
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .container {
     min-width: 730px;
+    margin-bottom: 0;
+    margin-right:0;
+    margin-left:0;
+    padding-right: 0;
+    padding-left:0;
+    width:100%;
   }
 
   /* Remove the padding we set earlier */
@@ -81,5 +92,6 @@ body {
   /* Remove the bottom border on the jumbotron for visual effect */
   .jumbotron {
     border-bottom: 0;
+    margin-bottom: 0;
   }
 }
