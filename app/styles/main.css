@@ -64,6 +64,8 @@ body {
 
 .carousel-inner > .item > a > img {
     margin: 0 auto;
+    max-width: 900px;
+    max-height: 1000px;
 }
 
 #banner {

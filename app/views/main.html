@@ -51,4 +51,16 @@
 $('.carousel').carousel({
     interval: 5000 //changes the speed
 })
+
+$('.carousel-control.left').click(function(e) {
+  e.stopPropagation();
+  $('.carousel').carousel('prev');
+  return false;
+});
+
+$('.carousel-control.right').click(function(e) {
+  e.stopPropagation();
+  $('.carousel').carousel('next');
+  return false;
+});
 </script>
