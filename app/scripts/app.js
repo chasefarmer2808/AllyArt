@@ -50,6 +50,11 @@ angular
         controller: 'ContactCtrl',
         controllerAs: 'contact'
       })
+      .when('/photoDetail/:photoId', {
+        templateUrl: 'views/photodetail.html',
+        controller: 'PhotodetailCtrl',
+        controllerAs: 'photoDetail'
+      })
       .otherwise({
         redirectTo: '/'
       });
