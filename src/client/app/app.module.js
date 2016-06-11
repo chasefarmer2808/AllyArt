@@ -7,6 +7,7 @@
     'app.admin',
     'app.dashboard',
     'app.gallery',
+    'app.album',
     'app.layout'
   ]);
 

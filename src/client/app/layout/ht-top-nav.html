@@ -9,13 +9,12 @@
   </div>
   <div class="navbar-collapse collapse" uib-collapse="isCollapsed">
     <ul class="nav navbar-nav">
-      <!-- <li data-match-route="/$"><a href="#/" id="link">Home</a></li> -->
       <span ng-repeat-start="r in vm.navRoutes"></span>
       <li ng-if="r.settings.dropdown" dropdown>
         <a dropdown-toggle  data-toggle="dropdown" href="#">{{r.name}}</a>
         <ul class="dropdown-menu">
           <li ng-repeat="album in vm.albums">
-            <a ui-sref="{{album.name}}">{{album.name}}</a>
+            <a ui-sref="album({albumId: {{album.name.split(' ').join('')}}})">{{album.name}}</a>
           </li>
         </ul>
         <!-- <a ui-sref="{{r.name}}" ng-bind-html="r.settings.content"></a> -->
