@@ -7,6 +7,8 @@ var config = require('./config');
 router.get('/people', getPeople);
 router.get('/person/:id', getPerson);
 router.get('/albums', getAlbums);
+router.get('/albums/:id', getAlbum);
+router.get('/photo/:id', getPhoto);
 router.get('/*', four0four.notFoundMiddleware);
 
 module.exports = router;
@@ -32,9 +34,51 @@ function getPerson(req, res, next) {
 
 function getAlbums(req, res, next) {
   var options = {
-    host: 'graph.facebook.com',
+    host: config.fbHost,
     path: '/v2.6/' + config.page_id + '?access_token=' + config.access_token + '&fields=albums'
   };
+
+  req = https.get(options, function(resp) {
+    var body = '';
+    resp.on('data', function(data) {
+      body += data;
+    });
+    resp.on('end', function(err) {
+      res.send(JSON.parse(body));
+    });
+  });
+
+  req.on('error', function(err) {
+    res.status(500).send(err);
+  });
+}
+
+function getAlbum(req, res, next) {
+  var options = {
+    host: config.fbHost,
+    path: '/v2.6/' + req.params.id + '?access_token=' + config.access_token + '&fields=photos{picture}'
+  }
+
+  req = https.get(options, function(resp) {
+    var body = '';
+    resp.on('data', function(data) {
+      body += data;
+    });
+    resp.on('end', function(err) {
+      res.send(JSON.parse(body));
+    });
+  });
+
+  req.on('error', function(err) {
+    res.status(500).send(err);
+  });
+}
+
+function getPhoto(req, res, next) {
+  var options = {
+    host: config.fbHost,
+    path: '/v2.6/' + req.params.id + '?access_token=' + config.access_token + '&fields=picture'
+  }
 
   req = https.get(options, function(resp) {
     var body = '';

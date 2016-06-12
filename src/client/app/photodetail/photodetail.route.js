@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('app.album')
+    .module('app.photodetail')
     .run(appRun);
 
   appRun.$inject = ['routerHelper'];
@@ -14,16 +14,16 @@
   function getStates() {
     return [
       {
-        state: 'album',
+        state: 'photodetail',
         config: {
-          url: '/gallery/:albumId',
-          templateUrl: 'app/album/album.html',
-          controller: 'AlbumController',
+          url: '/gallery/album/:photoId',
+          templateUrl: 'app/photodetail/photodetail.html',
+          controller: 'PhotodetailController',
           controllerAs: 'vm',
-          title: 'Album',
+          title: 'Photodetail',
           settings: {
             nav: 0,
-            content: 'Album',
+            content: 'Photodetail'
           }
         }
       }

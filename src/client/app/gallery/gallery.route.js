@@ -14,7 +14,7 @@
   function getStates() {
     return [
       {
-        state: 'gallery',
+        state: 'Gallery',
         config: {
           url: '/gallery',
           templateUrl: 'app/gallery/gallery.html',

@@ -14,13 +14,13 @@
         <a dropdown-toggle  data-toggle="dropdown" href="#">{{r.name}}</a>
         <ul class="dropdown-menu">
           <li ng-repeat="album in vm.albums">
-            <a ui-sref="album({albumId: {{album.name.split(' ').join('')}}})">{{album.name}}</a>
+            <a ui-sref="album({albumId: {{album.id}}})">{{album.name}}</a>
           </li>
         </ul>
         <!-- <a ui-sref="{{r.name}}" ng-bind-html="r.settings.content"></a> -->
       </li>
 
-      <li ng-if="!r.settings.dropdown">
+      <li ng-if="!r.settings.dropdown && r.settings.nav">
         <a ui-sref="{{r.name}}" ng-bind-html="r.settings.content"></a>
       </li>
       <span ng-repeat-end></span>

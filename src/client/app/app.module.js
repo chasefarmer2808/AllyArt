@@ -8,6 +8,7 @@
     'app.dashboard',
     'app.gallery',
     'app.album',
+    'app.photodetail',
     'app.layout'
   ]);
 

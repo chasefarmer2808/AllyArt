@@ -38,7 +38,7 @@
       function getAlbums() {
         return fbservice.getAlbums().then(function(data) {
           angular.forEach(data, function(album) {
-            if (album.name != 'Timeline Photos' && album.name != 'Cover Photos' && album.name != 'Mobile Photos' && album.name != 'Profile Pictures') {
+            if (album.name != 'Timeline Photos' && album.name != 'Cover Photos' && album.name != 'Mobile Uploads' && album.name != 'Profile Pictures') {
               vm.albums.push(album);
             }
           });

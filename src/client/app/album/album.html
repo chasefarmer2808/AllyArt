@@ -1,3 +1,3 @@
-<p>
-  album
-</p>
+<a ng-repeat="p in vm.photos" ui-sref="photodetail({photoId: {{p.id}}})">
+  <img src="{{p.picture}}"/>
+</a>
