@@ -9,6 +9,7 @@
     'app.gallery',
     'app.album',
     'app.photodetail',
+    'app.home',
     'app.layout'
   ]);
 

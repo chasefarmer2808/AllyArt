@@ -23,7 +23,18 @@
 
       function success(response) {
         console.log(response);
-        return response.data.albums.data;
+        var imgs = [];
+
+        angular.forEach(response.data.albums.data, function(album) {
+          var img = {
+            id: album.id,
+            img: album.photos.data[0].images[3],
+            name: album.name
+          };
+
+          imgs.push(img)
+        });
+        return imgs;
       }
 
       function fail(e) {
@@ -38,7 +49,18 @@
 
       function success(response) {
         console.log(response);
-        return response.data.photos;
+        var imgs = []
+
+        angular.forEach(response.data.photos.data, function(photo) {
+          var img = {
+            img: photo.images[3],
+            id: photo.id
+          };
+
+          imgs.push(img);
+        });
+        //return response.data.photos;
+        return imgs
       }
 
       function fail(e) {

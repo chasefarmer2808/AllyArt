@@ -24,7 +24,7 @@
     function getAlbum() {
       return fbservice.getAlbum($stateParams.albumId).then(function(data) {
         //console.log('data: ', data);
-        vm.photos = data.data;
+        vm.photos = data;
       });
     }
   }

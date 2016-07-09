@@ -35,43 +35,19 @@ function getPerson(req, res, next) {
 function getAlbums(req, res, next) {
   var options = {
     host: config.fbHost,
-    path: '/v2.6/' + config.page_id + '?access_token=' + config.access_token + '&fields=albums'
+    path: '/v2.6/' + config.page_id + '?access_token=' + config.access_token + '&fields=albums{photos{images},name}'
   };
 
-  req = https.get(options, function(resp) {
-    var body = '';
-    resp.on('data', function(data) {
-      body += data;
-    });
-    resp.on('end', function(err) {
-      res.send(JSON.parse(body));
-    });
-  });
-
-  req.on('error', function(err) {
-    res.status(500).send(err);
-  });
+  sendHTTPReq(options, req, res, next);
 }
 
 function getAlbum(req, res, next) {
   var options = {
     host: config.fbHost,
-    path: '/v2.6/' + req.params.id + '?access_token=' + config.access_token + '&fields=photos{picture}'
+    path: '/v2.6/' + req.params.id + '?access_token=' + config.access_token + '&fields=photos{images}'
   }
 
-  req = https.get(options, function(resp) {
-    var body = '';
-    resp.on('data', function(data) {
-      body += data;
-    });
-    resp.on('end', function(err) {
-      res.send(JSON.parse(body));
-    });
-  });
-
-  req.on('error', function(err) {
-    res.status(500).send(err);
-  });
+  sendHTTPReq(options, req, res, next);
 }
 
 function getPhoto(req, res, next) {
@@ -80,6 +56,10 @@ function getPhoto(req, res, next) {
     path: '/v2.6/' + req.params.id + '?access_token=' + config.access_token + '&fields=picture'
   }
 
+  sendHTTPReq(options, req, res, next);
+}
+
+function sendHTTPReq(options, req, res, next) {
   req = https.get(options, function(resp) {
     var body = '';
     resp.on('data', function(data) {

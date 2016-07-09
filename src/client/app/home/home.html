@@ -1,0 +1,5 @@
+<uib-carousel active="active" interval="2000">
+  <uib-slide ng-repeat="cover in vm.albumCovers" index="vm.slides[$index]" ui-sref="album({albumId: {{cover.id}}})">
+    <img src={{cover.img.source}} style="margin:auto" />
+  </uib-slide>
+</uib-carousel>
