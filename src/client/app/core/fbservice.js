@@ -8,9 +8,12 @@
   fbservice.$inject = ['$http', 'exception', 'logger'];
 
   function fbservice($http, exception, logger) {
+    var excludedAlbums = ['Timeline Photos', 'Cover Photos', 'Mobile Uploads', 'Profile Pictures'];
+
     var service = {
       getAlbums: getAlbums,
       getAlbum: getAlbum,
+      getThumbnails: getThumbnails,
       getPhoto: getPhoto
     }
 
@@ -26,13 +29,15 @@
         var imgs = [];
 
         angular.forEach(response.data.albums.data, function(album) {
-          var img = {
-            id: album.id,
-            img: album.photos.data[0].images[3],
-            name: album.name
-          };
+          if (excludedAlbums.indexOf(album.name) != -1) {
+            var img = {
+              id: album.id,
+              img: album.photos.data[0].images[2],
+              name: album.name
+            };
 
-          imgs.push(img)
+            imgs.push(img)
+          }
         });
         return imgs;
       }
@@ -53,7 +58,7 @@
 
         angular.forEach(response.data.photos.data, function(photo) {
           var img = {
-            img: photo.images[3],
+            img: photo.images[2],
             id: photo.id
           };
 
@@ -61,6 +66,21 @@
         });
         //return response.data.photos;
         return imgs
+      }
+
+      function fail(e) {
+        console.log(e);
+      }
+    }
+
+    function getThumbnails(id) {
+      return $http.get('api/albums/thumbnails/' + id)
+        .then(success)
+        .catch(fail);
+
+      function success(response) {
+        console.log(response);
+        return response.data.photos;
       }
 
       function fail(e) {

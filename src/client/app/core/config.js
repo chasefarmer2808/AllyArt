@@ -13,8 +13,8 @@
   }
 
   var config = {
-    appErrorPrefix: '[allyArt Error] ',
-    appTitle: 'allyArt'
+    appErrorPrefix: '[AllyArt Error] ',
+    appTitle: 'AllyArt'
   };
 
   core.value('config', config);

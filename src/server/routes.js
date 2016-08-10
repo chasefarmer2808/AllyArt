@@ -8,6 +8,7 @@ router.get('/people', getPeople);
 router.get('/person/:id', getPerson);
 router.get('/albums', getAlbums);
 router.get('/albums/:id', getAlbum);
+router.get('/albums/thumbnails/:id', getThumbnails)
 router.get('/photo/:id', getPhoto);
 router.get('/*', four0four.notFoundMiddleware);
 
@@ -45,6 +46,15 @@ function getAlbum(req, res, next) {
   var options = {
     host: config.fbHost,
     path: '/v2.6/' + req.params.id + '?access_token=' + config.access_token + '&fields=photos{images}'
+  }
+
+  sendHTTPReq(options, req, res, next);
+}
+
+function getThumbnails(req, res, next) {
+  var options = {
+    host: config.fbHost,
+    path: '/v2.6/' + req.params.id + '?access_token=' + config.access_token + '&fields=photos{picture}'
   }
 
   sendHTTPReq(options, req, res, next);
