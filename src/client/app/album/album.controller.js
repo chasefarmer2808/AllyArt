@@ -13,7 +13,7 @@
     vm.title = 'Album';
     vm.photos = [];
     vm.thumbs = [];
-    vm.selectedPhoto;
+    vm.selectedPhoto = 0;
     activate();
 
     function activate() {
@@ -26,7 +26,13 @@
     function getAlbum() {
       return fbservice.getAlbum($stateParams.albumId).then(function(data) {
         vm.photos = data;
-        vm.selectedPhoto = 0;
+        //vm.selectedPhoto = 0;
+
+        var index = 0;
+        vm.photos.forEach(function(photo) {
+          photo.index = index;
+          index++;
+        });
       });
     }
 
@@ -42,6 +48,10 @@
 
     vm.nextPhoto = function() {
       vm.selectedPhoto++;
+
+      if (vm.selectedPhoto > vm.photos.length - 1) {
+        vm.selectedPhoto = 0;
+      }
     }
 
     vm.previousPhoto = function() {

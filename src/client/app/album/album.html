@@ -1,33 +1,3 @@
-<!-- <link rel="stylesheet" href="src\client\styles\4-col-portfolio.css" />
-
-<style>
-  .img-thumbnail {
-    position: relative;
-    width:  400px;
-    height: 400px;
-    overflow: hidden;
-    vertical-align: middle;
-    text-align: center;
-  }
-</style>
-
-<div style="text-align: center">
-  <div ng-repeat="p in vm.photos" class="col-md-3 portfolio-item">
-    <!-- <a ui-sref="photodetail({photoId: {{p.id}}})"> -->
-    <!-- <div ng-click="vm.openModal($index)" class="img-thumbnail">
-      <img src="{{p.img.source}}" style="margin: -50%"/>
-    </div>
-  </div>
-</div> -->
-
-<!-- <div class="row">
-  <div class="col-xs-6 col-md-3">
-    <a href="#" class="thumbnail">
-      <img src="..." alt="...">
-    </a>
-  </div>
-  ...
-</div> -->
 
 <style>
   .selected {
@@ -35,14 +5,6 @@
   }
 </style>
 
-<!-- <div class="row">
-  <div class="col-xs-1" ng-repeat="thumb in vm.thumbs.data">
-    <a href="#" class="thumbnail">
-      <img src="{{thumb.picture}}" ng-click="vm.selectPhoto($index)"
-            ng-class="{selected: $index == vm.selectedPhoto}"/>
-    </a>
-  </div>
-</div> -->
 <div class="jumbotron">
   <div style="text-align: center">
     <img ng-repeat="thumb in vm.thumbs.data" src="{{thumb.picture}}" ng-click="vm.selectPhoto($index)"
@@ -50,23 +12,8 @@
   </div>
 </div>
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-2">
-      <i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i>
-    </div>
-    <div class="jumbotron col-md-8">
-      <div style="text-align: center">
-        <img ng-if="vm.photos[vm.selectedPhoto].img" src="{{vm.photos[vm.selectedPhoto].img.source}}" />
-      </div>
-    </div>
-    <div class="col-md-2">
-      <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>
-    </div>
+<div uib-carousel active="vm.selectedPhoto">
+  <div uib-slide ng-repeat="photo in vm.photos track by photo.index" index="photo.index">
+    <img ng-src="{{photo.img.source}}" style="margin:auto;" />
   </div>
 </div>
-<!-- <div class="jumbotron">
-  <div style="text-align: center">
-    <img ng-if="vm.photos[vm.selectedPhoto].img" src="{{vm.photos[vm.selectedPhoto].img.source}}" />
-  </div>
-</div> -->

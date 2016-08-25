@@ -5,10 +5,10 @@
     .module('app.core')
     .factory('fbservice', fbservice);
 
-  fbservice.$inject = ['$http', 'exception', 'logger'];
+  fbservice.$inject = ['$http', 'exception', 'logger', 'excludedAlbums'];
 
-  function fbservice($http, exception, logger) {
-    var excludedAlbums = ['Timeline Photos', 'Cover Photos', 'Mobile Uploads', 'Profile Pictures'];
+  function fbservice($http, exception, logger, excludedAlbums) {
+    //var excludedAlbums = ['Timeline Photos', 'Cover Photos', 'Mobile Uploads', 'Profile Pictures'];
 
     var service = {
       getAlbums: getAlbums,
@@ -29,7 +29,7 @@
         var imgs = [];
 
         angular.forEach(response.data.albums.data, function(album) {
-          if (excludedAlbums.indexOf(album.name) != -1) {
+          if (excludedAlbums.indexOf(album.name) == -1) {
             var img = {
               id: album.id,
               img: album.photos.data[0].images[2],
