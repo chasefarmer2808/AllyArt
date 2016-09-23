@@ -5,15 +5,15 @@
   }
 </style>
 
+<div uib-carousel active="vm.selectedPhoto">
+  <div uib-slide ng-repeat="photo in vm.photos track by photo.index" index="photo.index">
+    <img ng-src="{{photo.img.source}}" style="margin:auto;" />
+  </div>
+</div>
+
 <div class="jumbotron">
   <div style="text-align: center">
     <img ng-repeat="thumb in vm.thumbs.data" src="{{thumb.picture}}" ng-click="vm.selectPhoto($index)"
           ng-class="{selected: $index == vm.selectedPhoto}"/>
-  </div>
-</div>
-
-<div uib-carousel active="vm.selectedPhoto">
-  <div uib-slide ng-repeat="photo in vm.photos track by photo.index" index="photo.index">
-    <img ng-src="{{photo.img.source}}" style="margin:auto;" />
   </div>
 </div>
